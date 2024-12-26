@@ -36,19 +36,28 @@ mae = mean_absolute_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
 #GUI tarafı
-
 root = tk.Tk()
 root.title("BS429 Introduction To Pattern Recognition Report")
+root.geometry("400x400")  
 
-frame = ttk.Frame(root, padding="10")
-frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+frame_left = ttk.Frame(root, padding="10", height=200, width=400)
+frame_left.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-ttk.Label(frame, text="Model", font=("Helvetica", 12, "bold")).grid(column=1, row=1)
-ttk.Label(frame, text="Mean Absolute Error", font=("Helvetica", 12, "bold")).grid(column=2, row=1)
-ttk.Label(frame, text="R^2 Score", font=("Helvetica", 12, "bold")).grid(column=3, row=1)
+frame_right = ttk.Frame(root, padding="10", height=200, width=400)
+frame_right.grid(row=1, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-ttk.Label(frame, text="XGBoost").grid(column=1, row=2, sticky=tk.W)
-ttk.Label(frame, text=f"{mae:.2f}").grid(column=2, row=2, sticky=tk.W)
-ttk.Label(frame, text=f"{r2:.2f}").grid(column=3, row=2, sticky=tk.W)
+style = ttk.Style()
+style.configure("Green.TFrame", background="#b8e5b8")
+style.configure("Pink.TFrame", background="#f2b5d4")
+
+frame_left.configure(style="Green.TFrame")
+frame_right.configure(style="Pink.TFrame")
+
+ttk.Label(frame_left, text="MAE", font=("Helvetica", 14, "bold"), background="#b8e5b8").grid(column=1, row=1)
+ttk.Label(frame_right, text="R^2", font=("Helvetica", 14, "bold"), background="#f2b5d4").grid(column=1, row=1)
+
+ttk.Label(frame_left, text=f"{mae:.2f}", font=("Helvetica", 16), background="#b8e5b8").grid(column=1, row=2, sticky=tk.W)
+ttk.Label(frame_right, text=f"{r2:.2f}", font=("Helvetica", 16), background="#f2b5d4").grid(column=1, row=2, sticky=tk.W)
 
 root.mainloop()
+
