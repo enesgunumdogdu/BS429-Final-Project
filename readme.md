@@ -1,4 +1,4 @@
-# BS444-Introduction to Machine Learning Dersi Final Projesi
+# BS429-Introduction to Pattern Recognition Dersi Final Projesi
 Bu proje, dışkı mikrobiyomlarından biyolojik yaş tahmini yapmayı hedeflemektedir.
 
 ## Data
